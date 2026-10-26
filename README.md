@@ -1,6 +1,6 @@
 # Press
 
-The press kit for [omnibase](https://github.com/glitchr-studio/omnibase): what
+The press kit for [omnibase](https://github.com/glitchr-omnisense/omnibase): what
 an artist's agency - or a presenter's programme editor - asks a site for, on
 one page. First made for two musicians' sites (a harpist, a violinist), it
 holds nothing that is theirs alone.
