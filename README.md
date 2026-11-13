@@ -5,8 +5,8 @@ an artist's agency - or a presenter's programme editor - asks a site for, on
 one page. First made for two musicians' sites (a harpist, a violinist), it
 holds nothing that is theirs alone.
 
-A `Quote` is what was said or written: the words, who said them ("Joshua
-Bell", "violinist"), where (the publication, its link, its date), what about
+A `Quote` is what was said or written: the words, who said them ("Jeanne
+Exemple", "violinist"), where (the publication, its link, its date), what about
 (an album's title, a concert - free words, no relation), its kind (`press`,
 `colleague`, `audience`). One row is one language - the text and its `locale`;
 a quote with no locale is shown in every language. The featured ones are what
@@ -31,8 +31,11 @@ falls back on English.
 ## Install
 
 ```bash
-composer require omnibase/press:dev-main
+composer require omnibase/press
 ```
+
+Stable releases follow semantic versioning: this installs the latest 1.x, with omnisense/omnibase 5.1 or later
+on Symfony (omnibridge/symfony) and Doctrine ORM (DoctrineBundle), omnibase/admin for the back office. No `minimum-stability` setting is needed.
 
 ```php
 // config/bundles.php

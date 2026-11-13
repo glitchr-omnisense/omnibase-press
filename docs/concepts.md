@@ -16,7 +16,7 @@ order: 20
 | `translations` | `json`, nullable | per two-letter language: `{text, role}` - the words translated, the speaker's quality |
 | `offerOriginal` | `boolean` (`offer_original`), `true` | whether a translated quote lets the reader see the original |
 | `locale` | `string(5)`, nullable | restricts the quote to the readers of one language; `null`: shown to all |
-| `author` | `string(160)`, nullable | who speaks ("Joshua Bell"); empty when only the paper signs |
+| `author` | `string(160)`, nullable | who speaks ("Jeanne Exemple"); empty when only the paper signs |
 | `role` | `string(160)`, nullable | what the author is ("violinist") |
 | `source` | `string(160)`, nullable | the publication |
 | `url` | `string(500)`, nullable | its link (a URL with a TLD) |
@@ -37,7 +37,7 @@ Empty strings are kept as `null`. Methods:
 - The magic properties `translation_<xx>` and `role_<xx>` read and write `translations` - the
   back office's fields, one pair per language of the site.
 - `speaks(string $locale)` - no `locale`, or that one.
-- `getSignature()` - "Joshua Bell, violinist — BBC Music Magazine"; the source is not repeated
+- `getSignature()` - "Jeanne Exemple, violinist — BBC Music Magazine"; the source is not repeated
   when the role or author already names it.
 - `toggleFeatured()`.
 
@@ -87,7 +87,7 @@ use Base\Press\Entity\Quote;
 use Base\Press\Enum\BioLength;
 use Base\Press\Service\PhotoFilename;
 
-$quote = (new Quote('« A harp that sings. »', 'Joshua Bell', 'BBC Music Magazine'))->setRole('violinist')->setLanguage('en');
+$quote = (new Quote('« A harp that sings. »', 'Jeanne Exemple', 'BBC Music Magazine'))->setRole('violinist')->setLanguage('en');
 $quote->setTranslation('fr', 'Une harpe qui chante.', 'violoniste');
 echo $quote->getText(), ' | ', $quote->getSignature(), "\n";
 echo $quote->getTextIn('fr'), ' | ', $quote->getRoleIn('fr'), ' | ', $quote->getTextIn('de'), "\n";
@@ -102,7 +102,7 @@ echo PhotoFilename::of('clara-weiss.example', null, null, 12, 'png'), "\n";
 ```
 
 ```
-A harp that sings. | Joshua Bell, violinist — BBC Music Magazine
+A harp that sings. | Jeanne Exemple, violinist — BBC Music Magazine
 Une harpe qui chante. | violoniste | A harp that sings.
 string(2) "fr"
 int(111)

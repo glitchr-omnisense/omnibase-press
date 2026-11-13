@@ -16,7 +16,7 @@ final class BioTest extends TestCase
         self::assertSame(5, Bio::countWords('Clara Weiss plays the harp.'));
         // An apostrophe, a hyphen: one word each.
         self::assertSame(4, Bio::countWords("L'archet de l'élève brille"));
-        self::assertSame(2, Bio::countWords('NDR Sinfonie-Orchester'));
+        self::assertSame(2, Bio::countWords('Exemple Sinfonie-Orchester'));
         // Accents and other alphabets count like any letter.
         self::assertSame(3, Bio::countWords('Née à Besançon'));
         self::assertSame(2, Bio::countWords('Дмитрий Шостакович'));

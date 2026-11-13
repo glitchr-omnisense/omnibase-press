@@ -2,7 +2,7 @@
 
 The press kit for the sites built on [omnisense/omnibase](https://github.com/glitchr-omnisense/omnibase):
 what an artist's agency - or a presenter's programme editor - asks a site for, on one page,
-`/press`. It is a Symfony bundle (`Base\Press\PressBundle`) on the core 3 or 4, with its back
+`/press`. It is a Symfony bundle (`Base\Press\PressBundle`) on omnisense/omnibase 5.1 or later, with its back
 office on omnibase/admin. It was first made for two musicians' sites and holds nothing that is
 theirs alone.
 

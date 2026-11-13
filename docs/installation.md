@@ -8,7 +8,7 @@ order: 10
 ## Requirements
 
 What `composer.json` requires: PHP 8.2 or later, `doctrine/orm` 2.15 or 3,
-`omnisense/omnibase` 3.0, 4.0 or 5.0, `omnibridge/symfony` 1.x, `omnibase/admin`, and
+`omnisense/omnibase` 5.1 or later, `omnibridge/symfony` 1.1 or later, `doctrine/doctrine-bundle`, `omnibase/admin`, and
 `symfony/config`, `dependency-injection`, `form`, `http-kernel`, `security-bundle` and
 `string` 6, 7 or 8. The back office's screens use omnibase/admin's `#[OpenToAdmins]`
 attribute (omnibase/admin from 7474f85).
@@ -16,7 +16,7 @@ attribute (omnibase/admin from 7474f85).
 ## The bundle
 
 ```bash
-composer require omnibase/press:dev-main
+composer require omnibase/press
 ```
 
 ```php

@@ -48,8 +48,8 @@ final class QuoteTest extends TestCase
 
     public function testTheSignatureNamesTheAuthorTheRoleAndTheSourceOnce(): void
     {
-        $colleague = (new Quote('The most natural musician I know.', 'Joshua Bell'))->setRole('violinist');
-        self::assertSame('Joshua Bell, violinist', $colleague->getSignature());
+        $colleague = (new Quote('The most natural musician I know.', 'Jeanne Exemple'))->setRole('violinist');
+        self::assertSame('Jeanne Exemple, violinist', $colleague->getSignature());
 
         $critic = (new Quote('Radiant.', 'Anna Picard', 'The Times'))->setRole('critic');
         self::assertSame('Anna Picard, critic — The Times', $critic->getSignature());

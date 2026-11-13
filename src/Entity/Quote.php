@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * What was said or written: the words, who said them ("Joshua Bell",
+ * What was said or written: the words, who said them ("Jeanne Exemple",
  * "violinist"), where ("BBC Music Magazine", with its link and date), and
  * what about (the album, the concert - a free reference, no relation).
  *
@@ -247,7 +247,7 @@ class Quote
     }
 
     /**
-     * The line under the words: "Joshua Bell, violinist" or, with only the
+     * The line under the words: "Jeanne Exemple, violinist" or, with only the
      * paper, "BBC Music Magazine". The source is not repeated when the role
      * already names it.
      */
