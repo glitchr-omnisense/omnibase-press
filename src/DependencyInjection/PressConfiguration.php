@@ -2,7 +2,7 @@
 
 namespace Base\Press\DependencyInjection;
 
-use Base\Bundle\AbstractBaseConfiguration;
+use Omnibridge\Symfony\Omnibase\Bundle\AbstractBaseConfiguration;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 class PressConfiguration extends AbstractBaseConfiguration

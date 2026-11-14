@@ -23,13 +23,13 @@ composer require omnibase/press
 // config/bundles.php
 return [
     // ...
-    Base\BaseBundle::class => ['all' => true],
+    Omnibridge\Symfony\Omnibase\BaseBundle::class => ['all' => true],
     Base\Admin\AdminBundle::class => ['all' => true],
     Base\Press\PressBundle::class => ['all' => true],
 ];
 ```
 
-`PressBundle` extends the core's `AbstractBaseBundle`: its root is the package's
+`PressBundle` extends omnibridge/symfony's `AbstractBaseBundle`: its root is the package's
 (`templates/` is `@Press`, `public/` is `bundles/press/`), and `build()` aliases
 `Base\Press\Entity\*` to `App\Entity\Press\*` and the repositories to `App\Repository\Press\*`:
 an application takes an entity over by declaring `App\Entity\Press\Quote extends
