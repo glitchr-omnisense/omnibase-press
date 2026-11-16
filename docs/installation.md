@@ -23,7 +23,7 @@ composer require omnibase/press
 // config/bundles.php
 return [
     // ...
-    Omnibridge\Symfony\Omnibase\BaseBundle::class => ['all' => true],
+    Base\BaseBundle::class => ['all' => true],
     Base\Admin\AdminBundle::class => ['all' => true],
     Base\Press\PressBundle::class => ['all' => true],
 ];

@@ -113,7 +113,7 @@ class QuoteCrudController extends AbstractCrudController
         /** @var Quote $quote */
         $quote = $this->findEntity($entityId);
         $quote->toggleFeatured();
-        $this->entityManager->flush();
+        $this->unitOfWork->flush();
         $this->addFlash('success', $quote->isFeatured() ? '@press.admin.quote.flash.featured' : '@press.admin.quote.flash.unfeatured');
 
         return $this->redirectToIndex();

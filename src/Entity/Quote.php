@@ -4,7 +4,7 @@ namespace Base\Press\Entity;
 
 use Base\Press\Enum\QuoteKind;
 use Base\Press\Repository\QuoteRepository;
-use Doctrine\ORM\Mapping as ORM;
+use Base\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

@@ -4,15 +4,23 @@ namespace Base\Press\Repository;
 
 use Base\Press\Entity\Quote;
 use Base\Press\Enum\QuoteKind;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use Base\Database\Repository\Finder\Criterion;
+use Base\Database\Repository\Finder\Group;
+use Base\Database\Repository\Finder\Parser;
+use Base\Database\Repository\Finders;
+use Base\Database\Repository\ServiceEntityRepository;
 
-/** @extends ServiceEntityRepository<Quote> */
+/**
+ * @method Quote|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Quote|null findOneBy(array $criteria, ?array $orderBy = null)
+ * @method Quote[]    findAll()
+ * @method Quote[]    findBy(array $criteria, ?array $orderBy = null, $limit = null, $offset = null)
+ */
 class QuoteRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(Finders $finders)
     {
-        parent::__construct($registry, Quote::class);
+        parent::__construct($finders, Quote::class);
     }
 
     /**
@@ -24,23 +32,21 @@ class QuoteRepository extends ServiceEntityRepository
      */
     public function findVisible(?string $locale = null, ?QuoteKind $kind = null, ?int $limit = null, bool $featuredOnly = false): array
     {
-        $query = $this->createQueryBuilder('q')
-            ->andWhere('q.visible = true')
-            ->orderBy('q.featured', 'DESC')->addOrderBy('q.position', 'ASC')->addOrderBy('q.date', 'DESC')->addOrderBy('q.id', 'DESC');
+        $criteria = ['visible' => true];
         if ($locale) {
-            $query->andWhere('q.locale = :locale OR q.locale IS NULL')->setParameter('locale', mb_strtolower(substr($locale, 0, 2)));
+            $criteria[] = Group::of(Parser::SEPARATOR_OR,
+                Criterion::of('locale', mb_strtolower(substr($locale, 0, 2))),
+                Criterion::of('locale', null, Parser::OPTION_NULL),
+            );
         }
         if ($kind) {
-            $query->andWhere('q.kind = :kind')->setParameter('kind', $kind);
+            $criteria['kind'] = $kind;
         }
         if ($featuredOnly) {
-            $query->andWhere('q.featured = true');
-        }
-        if ($limit) {
-            $query->setMaxResults($limit);
+            $criteria['featured'] = true;
         }
 
-        return $query->getQuery()->getResult();
+        return $this->findBy($criteria, ['featured' => 'DESC', 'position' => 'ASC', 'date' => 'DESC', 'id' => 'DESC'], $limit ?: null);
     }
 
     /**

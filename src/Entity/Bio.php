@@ -5,7 +5,7 @@ namespace Base\Press\Entity;
 use Base\Database\Attribute\Timestamp;
 use Base\Press\Enum\BioLength;
 use Base\Press\Repository\BioRepository;
-use Doctrine\ORM\Mapping as ORM;
+use Base\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 

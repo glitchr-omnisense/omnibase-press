@@ -3,15 +3,20 @@
 namespace Base\Press\Repository;
 
 use Base\Press\Entity\Photo;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use Base\Database\Repository\Finders;
+use Base\Database\Repository\ServiceEntityRepository;
 
-/** @extends ServiceEntityRepository<Photo> */
+/**
+ * @method Photo|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Photo|null findOneBy(array $criteria, ?array $orderBy = null)
+ * @method Photo[]    findAll()
+ * @method Photo[]    findBy(array $criteria, ?array $orderBy = null, $limit = null, $offset = null)
+ */
 class PhotoRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(Finders $finders)
     {
-        parent::__construct($registry, Photo::class);
+        parent::__construct($finders, Photo::class);
     }
 
     /** @return list<Photo> the pictures shown, in their order */

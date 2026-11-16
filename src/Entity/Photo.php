@@ -4,7 +4,7 @@ namespace Base\Press\Entity;
 
 use Base\Database\Attribute\Uploader;
 use Base\Press\Repository\PhotoRepository;
-use Doctrine\ORM\Mapping as ORM;
+use Base\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 

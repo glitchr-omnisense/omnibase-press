@@ -4,15 +4,20 @@ namespace Base\Press\Repository;
 
 use Base\Press\Entity\Bio;
 use Base\Press\Enum\BioLength;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Persistence\ManagerRegistry;
+use Base\Database\Repository\Finders;
+use Base\Database\Repository\ServiceEntityRepository;
 
-/** @extends ServiceEntityRepository<Bio> */
+/**
+ * @method Bio|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Bio|null findOneBy(array $criteria, ?array $orderBy = null)
+ * @method Bio[]    findAll()
+ * @method Bio[]    findBy(array $criteria, ?array $orderBy = null, $limit = null, $offset = null)
+ */
 class BioRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(Finders $finders)
     {
-        parent::__construct($registry, Bio::class);
+        parent::__construct($finders, Bio::class);
     }
 
     /** The biography of one length in $locale, else in the fallback language. */
