@@ -34,7 +34,7 @@ falls back on English.
 composer require omnibase/press
 ```
 
-Stable releases follow semantic versioning: this installs the latest 1.x, with omnisense/omnibase 5.1 or later
+Stable releases follow semantic versioning: this installs the latest 2.x, with omnisense/omnibase 7.0 or later
 on Symfony (omnibridge/symfony) and Doctrine ORM (DoctrineBundle), omnibase/admin for the back office. No `minimum-stability` setting is needed.
 
 ```php
